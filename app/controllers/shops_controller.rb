@@ -15,6 +15,17 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
   end
 
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    shop = Shop.find(params[:id])
+    shop.update(shop_params)
+
+    redirect_to shop
+  end
+
   private
   def shop_params
     params.require(:shop).permit(:name, :image, :text)
