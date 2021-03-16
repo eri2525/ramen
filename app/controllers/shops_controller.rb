@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  before_action :set_target_shop, only: [:show, :edit, :update, :destroy]
+
   def index
     @shops = Shop.all
   end
@@ -13,23 +15,19 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @shop = Shop.find(params[:id])
   end
 
   def edit
-    @shop = Shop.find(params[:id])
   end
 
   def update
-    shop = Shop.find(params[:id])
-    shop.update(shop_params)
+    @shop.update(shop_params)
 
     redirect_to shop
   end
 
   def destroy
-    shop = Shop.find(params[:id])
-    shop.delete
+    @shop.delete
 
     redirect_to shops_path
   end
@@ -37,5 +35,9 @@ class ShopsController < ApplicationController
   private
   def shop_params
     params.require(:shop).permit(:name, :image, :text)
+  end
+
+  def set_target_shop
+    @shop = Shop.find(params[:id])
   end
 end
