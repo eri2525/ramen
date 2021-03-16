@@ -10,9 +10,17 @@ class ShopsController < ApplicationController
   end
 
   def create
-    shop = Shop.create(shop_params)
-    flash[:notice] = "「#{shop.name}」を登録しました"
-    redirect_to shop
+    shop = Shop.new(shop_params)
+    if shop.save
+      flash[:notice] = "「#{shop.name}」を登録しました"
+      redirect_to shop
+    else
+      redirect_to new_shop_path, flash: {
+        shop: shop,
+        error_messages: shop.errors.full_messages
+      }
+      
+    end
   end
 
   def show
