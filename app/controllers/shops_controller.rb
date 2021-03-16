@@ -11,6 +11,10 @@ class ShopsController < ApplicationController
     Shop.create(shop_params)
   end
 
+  def show
+    @shop = Shop.find(params[:id])
+  end
+
   private
   def shop_params
     params.require(:shop).permit(:name, :image, :text)
