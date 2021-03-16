@@ -1,4 +1,9 @@
 ja: 
+  activerecord:
+    attributes:
+      shop:
+        name: 店舗名
+        text: コメント
   views:
     pagination:
       first: '最初'
@@ -6,3 +11,4 @@ ja:
       previous: '前'
       next: '次'
       truncate: '...'
+  
