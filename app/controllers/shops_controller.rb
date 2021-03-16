@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
   before_action :set_target_shop, only: [:show, :edit, :update, :destroy]
 
   def index
-    @shops = Shop.all
+    @shops = Shop.page(params[:page]).per(10)
   end
 
   def new
