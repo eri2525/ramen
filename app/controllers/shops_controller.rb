@@ -8,7 +8,8 @@ class ShopsController < ApplicationController
   end
 
   def create
-    Shop.create(shop_params)
+    shop = Shop.create(shop_params)
+    redirect_to shop
   end
 
   def show
@@ -24,6 +25,13 @@ class ShopsController < ApplicationController
     shop.update(shop_params)
 
     redirect_to shop
+  end
+
+  def destroy
+    shop = Shop.find(params[:id])
+    shop.delete
+
+    redirect_to shops_path
   end
 
   private
