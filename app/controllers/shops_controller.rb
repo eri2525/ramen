@@ -11,6 +11,7 @@ class ShopsController < ApplicationController
 
   def create
     shop = Shop.create(shop_params)
+    flash[:notice] = "「#{shop.name}」を登録しました"
     redirect_to shop
   end
 
@@ -29,7 +30,7 @@ class ShopsController < ApplicationController
   def destroy
     @shop.delete
 
-    redirect_to shops_path
+    redirect_to shops_path, flash: {notice: "「#{@shop.name}」が削除されました"}
   end
 
   private
