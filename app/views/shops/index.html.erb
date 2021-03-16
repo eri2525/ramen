@@ -8,16 +8,16 @@
   <thead class="thead-dark">
     <tr>
       <th>店舗名</th>
-      <th>登録日時</th>
-      <th>更新日時</th>
+      <th>登録日</th>
+      <th>更新日</th>
     </tr>
   </thead>
   <tbody>
   <% @shops.each do |shop|%>
   <tr>
     <td><%= shop.name %></td>
-    <td><%= shop.created_at %></td>
-    <td><%= shop.updated_at %></td>
+    <td><%= shop.created_at.to_s(:datetime_jp) %></td>
+    <td><%= shop.updated_at.to_s(:datetime_jp) %></td>
   </tr>
   <% end %>
   </tbody>
