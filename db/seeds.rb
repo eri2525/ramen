@@ -10,3 +10,12 @@
     Shop.create(name: "店舗名#{i}", text: "コメント#{i}")
   end
 
+ Tag.create([
+   { name: '東口'},
+   { name: '西口'},
+   { name: 'とんこつ'},
+   { name: 'しょうゆ' },
+   { name: '魚介' },
+   { name: '激辛' },
+   { name: 'つけ麺'}
+ ])

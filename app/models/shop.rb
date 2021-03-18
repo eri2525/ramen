@@ -10,6 +10,10 @@
 #  updated_at :datetime         not null
 #
 class Shop < ApplicationRecord
+  has_many :comments, dependent: :delete_all
+  has_many :shop_tag_relations, dependent: :delete_all
+  has_many :tags, through: :shop_tag_relations
+  
   validates :name, presence: true, length: { maximum: 10 }
   validates :text, length: { maximum: 500 }
   # validates :image,
