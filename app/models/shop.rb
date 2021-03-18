@@ -10,6 +10,8 @@
 #  updated_at :datetime         not null
 #
 class Shop < ApplicationRecord
+  has_many :comments
+  
   validates :name, presence: true, length: { maximum: 10 }
   validates :text, length: { maximum: 500 }
   # validates :image,
