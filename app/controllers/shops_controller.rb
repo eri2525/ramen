@@ -42,14 +42,13 @@ class ShopsController < ApplicationController
   end
 
   def destroy
-    @shop.delete
-
+    @shop.destroy
     redirect_to shops_path, flash: {notice: "「#{@shop.name}」が削除されました"}
   end
 
   private
   def shop_params
-    params.require(:shop).permit(:name, :image, :text)
+    params.require(:shop).permit(:name, :image, :text, tag_ids: [])
   end
 
   def set_target_shop
