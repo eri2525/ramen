@@ -1,7 +1,7 @@
 <%= render 'shared/error_messages' %>
 
 <div class ="form-group">
-<%= form_with model: shop do |f| %>
+<%= form_with(model: shop, local: true) do |f| %>
   
     <%= f.label :name, '店舗名' %>
     <%= f.text_field :name, class: 'form-control' %>
