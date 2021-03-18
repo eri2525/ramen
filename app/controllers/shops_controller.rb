@@ -6,7 +6,7 @@ class ShopsController < ApplicationController
   end
 
   def new
-    @shop = Shop.new
+    @shop = Shop.new(flash[:shop])
   end
 
   def create
@@ -31,9 +31,14 @@ class ShopsController < ApplicationController
   end
 
   def update
-    @shop.update(shop_params)
-
-    redirect_to shop
+    if @shop.update(shop_params)
+      redirect_to @shop
+    else
+      redirect_to edit_shop_path, flash: {
+        shop: @shop,
+        error_messages: @shop.errors.full_messages
+      }
+    end
   end
 
   def destroy
