@@ -24,7 +24,7 @@ class ShopsController < ApplicationController
   end
 
   def show
-    @comment = @shop.comments.new
+    @comment = Comment.new(shop_id: @shop.id)
   end
 
   def edit
