@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
       redirect_to comment.shop
     else
       flash[:comment] = comment
-      flash[:error_messages] = coment.errors.full_messages
+      flash[:error_messages] = comment.errors.full_messages
       redirect_back fallback_location: comment.shop
     end
   end
