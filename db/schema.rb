@@ -26,11 +26,13 @@ ActiveRecord::Schema.define(version: 2021_03_19_051330) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "shop_id", null: false
+    t.bigint "user_id", null: false
     t.string "name"
     t.text "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_comments_on_shop_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "shop_tag_relations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(version: 2021_03_19_051330) do
   end
 
   add_foreign_key "comments", "shops"
+  add_foreign_key "comments", "users"
   add_foreign_key "shop_tag_relations", "shops"
   add_foreign_key "shop_tag_relations", "tags"
 end

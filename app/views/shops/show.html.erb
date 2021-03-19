@@ -17,4 +17,6 @@
   <%= render @shop.comments %>
 </div>
 
+<% if user_signed_in? || admin_signed_in? %>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>
+<% end %>

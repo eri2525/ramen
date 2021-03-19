@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root to: 'shops#index'
+  # resources :admin_shops
+  # resources :user_shops
+
   devise_for :admins, controllers: {
     sessions:       'admins/sessions',
     passwords:      'admins/passwords',
@@ -10,7 +14,7 @@ Rails.application.routes.draw do
     registrations:  'users/registrations'
   }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: 'shops#index'
+
   resources :shops
   resources :comments, only: %i[create destroy]
 end

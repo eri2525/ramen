@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   def create
+    binding.pry
     comment = Comment.new(comment_params)
     if comment.save
       flash[:notice] = 'コメントを投稿しました'
@@ -20,6 +21,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:shop_id, :name, :comment)
+    params.require(:comment).permit(:shop_id, :name, :comment).merge(user_id: current_user.id)
   end
 end
