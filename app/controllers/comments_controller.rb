@@ -16,6 +16,7 @@ class CommentsController < ApplicationController
     comment.delete
     redirect_to comment.shop, flash: { notice: 'コメントが削除されました' }
   end
+  
 
   private
 

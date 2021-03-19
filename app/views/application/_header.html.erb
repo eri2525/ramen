@@ -15,10 +15,15 @@
       <li class="nav-item dropdown">
       <div class="dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         <% if user_signed_in? %>
+         <%= current_user.nickname %>
+          <% else %>
           ユーザー
+          <% end %>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <% if user_signed_in? %>
+            <%= link_to 'マイページ', "/users/#{current_user.id}" ,class: 'dropdown-item' %>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
           <% else %>
             <%= link_to '登録', new_user_registration_path, class: 'dropdown-item' %>
