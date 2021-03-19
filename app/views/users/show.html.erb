@@ -13,7 +13,7 @@
         </div>
         <div class="post-right">
           <div class="post-user-name">
-            <%= comment.name %>
+            <p><%= comment.shop.name %>へのコメント</p>
           </div>
           <%= link_to(comment.comment, "/shops/#{comment.id}") %>
         </div>
