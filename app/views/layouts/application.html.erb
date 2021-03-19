@@ -25,13 +25,34 @@
       <div class="container">
     
     <%= yield %>
-    
+     </div>
+     <%= render 'footer' %>
         <footer>
-      <p>
-        Copyright IkebukuroRamenCatalogue 2019.
-      </p>
+  <ul>
+
+          <li class="nav-item dropdown">
+      <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          管理者
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if admin_signed_in? %>
+            <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: 'dropdown-item' %>
+          <% else %>
+            
+            <%= link_to 'ログイン', new_admin_session_path, class: 'dropdown-item' %>
+          <% end %>
+        </div>
+       </div>
+      </li>
+  </ul>
+    
+   <small>&copy; 2021 IkebukuroRamenCatalogue</small> 
+
+    <!-- footer end -->
+  
     </footer>
-    </div>
+   
 
   </body>
 </html>

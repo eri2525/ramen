@@ -2,7 +2,9 @@
 <div class="d-flex align-items-center mt-4 mb-4">
   <div class="ml-auto boards__linkBox">
     <%= link_to '店舗一覧', shops_path, class: 'btn btn-outline-dark' %>
+    <% if admin_signed_in? %>
     <%= link_to '編集', edit_shop_path(@shop), class: 'btn btn-outline-dark' %>
+    <% end %>
   </div>
 </div>
 
@@ -12,10 +14,9 @@
 
 <%= render @shop %>
 
-<div class="p-comment__list">
-  <div class="p-comment_listTitle">コメント</div>
+
   <%= render @shop.comments %>
-</div>
+
 
 <% if user_signed_in? || admin_signed_in? %>
 <%= render partial: 'comments/form', locals: { comment: @comment } %>
