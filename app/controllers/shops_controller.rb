@@ -48,7 +48,7 @@ class ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:name, :image, :text, tag_ids:[])
+    params.require(:shop).permit(:name, :text, tag_ids:[], images:[])
   end
 
   def set_target_shop

@@ -5,9 +5,17 @@
       <span class="badge badge-primary"><%= tag.tag %></span>
     <% end %>
   </div>
+    <div class="card-body">
+    <% if shop.images.attached? %>
+    <p class="user-show">
+    <% shop.images.each do |image| %>
+    <%= image_tag image.variant(resize: '300x300')  %>
+    <% end %>
+    </p>
+    <% end %>
+  </div>
   <div class="card-body">
     <p class="card-text"><%= simple_format(shop.text) %></p>
-
   </div>
 </div>
 
