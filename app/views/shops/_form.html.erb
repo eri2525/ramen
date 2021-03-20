@@ -9,6 +9,12 @@
     <%= f.file_field :images, multiple: true, class: 'form-control', placeholder: "Image Url" %>
     <%= f.label :text, 'コメント' %>
     <%= f.text_area :text, class: 'form-control', rows: 5 %>
+    <%= f.label :address, '住所' %>
+    <%= f.text_field :address, class: 'form-control' %>
+    <%= f.label :access, 'アクセス' %>
+    <%= f.text_area :access, class: 'form-control' %>
+    <%= f.label :inquiry, '問い合わせ' %>
+    <%= f.text_field :inquiry, class: 'form-control' %>
 </div>
 
   <div class="form-group">

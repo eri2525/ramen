@@ -21,3 +21,22 @@
   display: inline-block;
   width: auto;
 }
+
+#info dl {
+  display: flex;
+  flex-wrap: wrap;
+  // margin-bottom: 50px;
+}
+
+#info dt {
+  width: 7em;
+}
+
+#info dd {
+  width: calc(100% - 7em);
+}
+
+#info dt,
+#info dd {
+  margin-bottom: 10px;
+}
