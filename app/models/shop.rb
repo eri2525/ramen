@@ -20,7 +20,7 @@ class Shop < ApplicationRecord
   has_many :tags, through: :shop_tag_relations
   has_many_attached :images
   
-  validates :name, presence: true, length: { maximum: 10 }
+  validates :name, presence: true, length: { maximum: 20 }
   validates :text, length: { maximum: 500 }
   # validates :image,
 
