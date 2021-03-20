@@ -16,10 +16,11 @@ class CommentsController < ApplicationController
     comment.delete
     redirect_to comment.shop, flash: { notice: 'コメントが削除されました' }
   end
+  
 
   private
 
   def comment_params
-    params.require(:comment).permit(:shop_id, :name, :comment)
+    params.require(:comment).permit(:shop_id, :comment).merge(user_id: current_user.id)
   end
 end

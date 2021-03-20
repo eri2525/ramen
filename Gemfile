@@ -60,3 +60,5 @@ gem 'bootstrap', '~> 4.5.0'
 gem 'kaminari'
 gem 'rails-i18n'
 gem 'annotate'
+
+gem 'devise'

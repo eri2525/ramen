@@ -11,7 +11,9 @@
                       }
        %>
     <% end %>
+    <% if admin_signed_in? %>
     <%= link_to '新規登録', new_shop_path, class: 'btn btn-outline-dark' %>
+    <% end %>
   </div>
 </div>
 
@@ -35,7 +37,9 @@
     <td><%= shop.created_at.to_s(:datetime_jp) %></td>
     <td><%= shop.updated_at.to_s(:datetime_jp) %></td>
     <td><%= link_to '詳細', shop, class: 'btn btn-outline-dark' %></td>
-    <td><%= link_to '削除', shop, class: 'btn btn-outline-dark', method: :delete %></td>
+    <td><% if admin_signed_in? %>
+        <%= link_to '削除', shop, class: 'btn btn-outline-dark', method: :delete %>
+        <% end%></td>
   </tr>
   <% end %>
   </tbody>
