@@ -11,6 +11,7 @@ class ShopsController < ApplicationController
   end
 
   def create
+    binding.pry
     shop = Shop.new(shop_params)
     if shop.save
       flash[:notice] = "「#{shop.name}」を登録しました"
@@ -48,7 +49,7 @@ class ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:name, :text, tag_ids:[], images:[])
+    params.require(:shop).permit(:name, :text, :address, :access, :inquiry, tag_ids:[], images:[])
   end
 
   def set_target_shop

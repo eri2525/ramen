@@ -14,8 +14,27 @@
     </p>
     <% end %>
   </div>
+  </div>
+
+  <div class="card">
   <div class="card-body">
     <p class="card-text"><%= simple_format(shop.text) %></p>
   </div>
-</div>
+  </div>
+  <div class="card">
+  <div class= "card-body">
+        <section id="info">
+      <dl class="card-text">
+        <dt>住所</dt>
+        <dd><%= simple_format(shop.address) %></dd>
+        <dt>アクセス</dt>
+        <dd><%= simple_format(shop.access) %></dd>
+        <dt>問い合わせ</dt>
+        <dd><%= simple_format(shop.inquiry) %></dd>
+      </dl>
+      
+    </div>
+  </div>
+  
+
 
