@@ -1,3 +1,37 @@
+<script type="text/javascript">
+  function initMap() {
+
+    var test ={lat: <%= shop.latitude %>, lng: <%= shop.longitude %>};
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15, 
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= shop.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyABomGZMOkWM2Zz1HDwFknWqPo-209hhp0&callback=initMap">
+</script>
+
+
 <div class="card">
   <div class="card-header">
     <h4><%= shop.name %></h4>
@@ -22,7 +56,10 @@
   </div>
   </div>
   <div class="card">
+  
   <div class= "card-body">
+  <div class="contents wrapper">
+  <main id="main_content">
         <section id="info">
       <dl class="card-text">
         <dt>住所</dt>
@@ -32,7 +69,14 @@
         <dt>問い合わせ</dt>
         <dd><%= simple_format(shop.inquiry) %></dd>
       </dl>
-      
+      </main>
+            <aside id="sidebar">
+        <ul>
+          <li>
+             <div id="map"></div>
+        </li>
+    </aside>
+    </div>
     </div>
   </div>
   
