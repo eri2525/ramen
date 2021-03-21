@@ -40,3 +40,32 @@
 #info dd {
   margin-bottom: 10px;
 }
+
+#map { height: 250px;
+  width: 400px;}
+
+  .contents {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  #main_content {
+    width: 65%;
+  }
+  
+  // #sidebar {
+  //   width: 31%;
+  // }
+  
+  #home h2 {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #8c6239;
+    font-size: 1.2rem;
+  }
+
+  #sidebar ul li {
+    // margin-bottom: 20px;
+    list-style-type: none;
+  }

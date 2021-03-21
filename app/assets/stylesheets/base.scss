@@ -4,14 +4,13 @@ h1{
 
 footer {
   margin-top: 100px;
-  padding: 30px;
-  text-align: right;
+  padding: 10px;
+  text-align: left;
   color: #fff;
-  background-color: #8c6239;
 }
 
 footer ul {
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
   font-size: 0.9rem;
 }
 
@@ -80,4 +79,32 @@ small {
 
 .user {
   margin-bottom: 20px;
+}
+
+html {
+  font-size: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic proN", "メイリオ", sans-serif;
+  color: #555;
+  line-height: 1.5;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1;
+}
+
+// img {
+//   width: 100%;
+// }
+
+.wrapper {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
