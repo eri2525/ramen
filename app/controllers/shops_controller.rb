@@ -11,7 +11,6 @@ class ShopsController < ApplicationController
   end
 
   def create
-    binding.pry
     shop = Shop.new(shop_params)
     if shop.save
       flash[:notice] = "「#{shop.name}」を登録しました"
