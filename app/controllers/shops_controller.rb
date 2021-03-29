@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :set_target_shop, only: [:show, :edit, :update, :destroy]
+  before_action :set_target_shop, only: %i[show edit update destroy]
 
   def index
     @shops = params[:tag_id].present? ? Tag.find(params[:tag_id]).shops : Shop.all
@@ -27,8 +27,7 @@ class ShopsController < ApplicationController
     @comment = Comment.new(shop_id: @shop.id)
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @shop.update(shop_params)
@@ -43,15 +42,16 @@ class ShopsController < ApplicationController
 
   def destroy
     @shop.destroy
-    redirect_to shops_path, flash: {notice: "「#{@shop.name}」が削除されました"}
+    redirect_to shops_path, flash: { notice: "「#{@shop.name}」が削除されました" }
   end
 
   private
+
   def shop_params
-    params.require(:shop).permit(:name, :text, :address, :access, :inquiry, tag_ids:[], images:[])
+    params.require(:shop).permit(:name, :text, :address, :access, :inquiry, tag_ids: [], images: [])
   end
 
   def set_target_shop
-    @shop = Shop.find(params[:id] )
+    @shop = Shop.find(params[:id])
   end
 end
